@@ -1,0 +1,29 @@
+@page
+@model IceCreamModel
+@{
+    ViewData["Title"] = "IJs met saus en slagroom";
+    ViewData["Nav"] = "tables";
+}
+@* FR-18: ijs gebruikt dezelfde optiegroepen als een bijgerecht, alleen andere groepen: saus en slagroom. *@
+<div class="app"><partial name="_Rail" /><partial name="_OrderScreen" /></div>
+<div class="sluier"><form class="dlg smal" method="post" asp-page="/Orders/Index" asp-page-handler="AddLine">
+  <h2></h2>
+  <p class="sub"></p>
+
+  <div class="veld"><label>Saus</label>
+    <div class="keuzes drie">
+      @* <label class="keuze"><input type="radio" name="sauce" value="[saus]">[saus]</label> *@
+    </div></div>
+
+  <div class="veld"><label>Slagroom</label>
+    <div class="keuzes">
+      @* <label class="keuze"><input type="radio" name="whippedCream" value="[keuze]">[keuze]</label> *@
+    </div></div>
+
+  <div class="veld" style="display:flex;align-items:center;justify-content:space-between">
+    <div><label style="margin-bottom:4px">Aantal</label><span class="stap" data-stepper><button type="button" data-delta="-1"><img src="~/icons/min.svg" alt="min"></button><b>1</b><button type="button" class="plus" data-delta="1"><img src="~/icons/plus.svg" alt="plus"></button><input type="hidden" name="quantity" value="1"></span></div>
+    <div style="text-align:right"><label style="margin-bottom:4px">Regeltotaal</label>
+      <span style="font-family:var(--med);font-size:22px;letter-spacing:-.4px"></span></div></div>
+
+  <div class="acties"><a class="knop leeg" asp-page="/Orders/Index">Annuleren</a><button type="submit" class="knop rood">Toevoegen</button></div>
+</form></div>

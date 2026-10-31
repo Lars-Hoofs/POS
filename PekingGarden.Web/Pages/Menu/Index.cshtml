@@ -1,0 +1,49 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Menubeheer";
+    ViewData["Nav"] = "menu";
+    ViewData["Role"] = "Manager";
+}
+@* FR-14: Ying past zelf gerechten en prijzen aan, elke week. Per product: gang (voor de keukenbon),
+     btw-tarief (voor de rekening) en welke keuzes erbij horen (FR-04, FR-18). *@
+<div class="app">
+<partial name="_Rail" />
+  <main class="mid">
+    <div class="pagkop">
+      <div><h1>Menubeheer</h1><p>prijzen inclusief btw</p></div>
+      <div class="rechts"><a class="knop leeg" asp-page="/Menu/Wishes" style="width:auto;padding:9px 14px;font-size:13px">Lijst met wensen</a> <button type="button" class="knop leeg" style="width:auto;padding:9px 14px;font-size:13px" data-new-form="product">Nieuw product</button></div>
+    </div>
+    <div style="padding:0 20px 12px">
+      <div class="zoek"><img class="zoekicoon" src="~/icons/zoek.svg" alt=""><input type="search" data-search="#products tr[data-row]" placeholder="Zoeken"><span class="hint">nummer, naam of categorie</span></div>
+    </div>
+    <div class="scroll" style="padding:0 20px"><table id="products">
+      <tr><th>Nr</th><th>Naam</th><th>Categorie</th><th>Gang</th><th class="num">Btw</th><th class="num">Prijs</th></tr>
+      @* <tr data-row><td>[nummer]</td><td><a asp-page="/Menu/Index" asp-route-product="[nummer]">[naam]</a></td><td class="zacht">[categorie]</td><td class="zacht">[gang]</td><td class="num">[btw]</td><td class="num">[prijs]</td></tr> *@
+    </table></div>
+  </main>
+
+  <form class="paneel" method="post" asp-page="/Menu/Index" asp-page-handler="Save" data-form="product">
+    <div class="tafelkop"><div><h1 data-form-title>Product</h1><p data-form-subtitle></p></div></div>
+    <div class="velden">
+      <div class="veld" style="margin-top:0"><label for="number">Nummer</label><input class="invoer" id="number" name="number" maxlength="5" autocomplete="off"></div>
+      <div class="veld" style="margin-top:0"><label for="price">Prijs</label><input class="invoer" id="price" name="price" inputmode="decimal" autocomplete="off"></div>
+    </div>
+    <div class="veld"><label for="name">Naam</label><input class="invoer" id="name" name="name" maxlength="100" autocomplete="off"></div>
+    <div class="veld"><label for="category">Categorie</label><select class="invoer" id="category" name="category">
+      @* <option>[categorie]</option> *@
+    </select></div>
+    <div class="veld"><label>Gang op de keukenbon</label>
+      <div class="chips"><label class="chip"><input type="radio" name="course" value="Voorgerecht">Voorgerecht</label><label class="chip"><input type="radio" name="course" value="Tussengerecht">Tussengerecht</label><label class="chip"><input type="radio" name="course" value="Hoofdgerecht">Hoofdgerecht</label><label class="chip"><input type="radio" name="course" value="Nagerecht">Nagerecht</label></div></div>
+    <div class="veld"><label>Btw</label>
+      <div class="tabs"><label class="t"><input type="radio" name="vatRate" value="9">9%</label><label class="t"><input type="radio" name="vatRate" value="21">21%</label></div></div>
+    <div class="veld"><label>Keuzes bij dit product</label>
+      <div class="chips">
+        @* <label class="chip"><input type="checkbox" name="optionGroups" value="[optiegroep]">[optiegroep]</label> *@
+      </div></div>
+    <div class="melding info">
+      <b>Een nieuwe prijs raakt open tafels niet</b>
+      <span>Een bestelregel bewaart de prijs van het moment van bestellen.</span></div>
+    <div class="acties" style="margin-top:auto;padding-top:14px"><button type="submit" class="knop leeg" asp-page="/Menu/Index" asp-page-handler="TakeOff">Uit menu</button><button type="submit" class="knop rood">Opslaan</button></div>
+  </form>
+</div>

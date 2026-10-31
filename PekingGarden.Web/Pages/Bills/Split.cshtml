@@ -1,0 +1,53 @@
+@page
+@model SplitModel
+@{
+    ViewData["Title"] = "Rekening eten en drinken apart";
+    ViewData["Nav"] = "tables";
+}
+@* UC-13: een groep wil eten en drinken apart betalen. Dezelfde tafel, twee rekeningen:
+     het eten en de drankjes, elk met de eigen btw en het eigen totaal. Niets wordt verplaatst. *@
+<div class="app">
+<partial name="_Rail" />
+  <main class="mid">
+    <div class="pagkop"><div><h1>Rekening</h1><p>eten en drinken apart</p></div></div>
+    <div class="bonnen" style="gap:14px;padding:4px 12px 16px">
+      <div><div class="bijschrift">Rekening eten</div>
+<div class="papier klein">       PEKING GARDEN
+         Stramproy
+<b>TAFEL · ETEN</b>
+----------------------------------
+----------------------------------
+<b>TOTAAL</b>
+
+----------------------------------
+      Bedankt en tot ziens</div></div>
+      <div><div class="bijschrift">Rekening drinken</div>
+<div class="papier klein">       PEKING GARDEN
+         Stramproy
+<b>TAFEL · DRINKEN</b>
+----------------------------------
+----------------------------------
+<b>TOTAAL</b>
+
+----------------------------------
+      Bedankt en tot ziens</div></div>
+    </div>
+  </main>
+  <aside class="paneel">
+    <div class="tafelkop"><div><h1>Tafel</h1><p></p></div></div>
+    <div class="melding info" style="margin-top:0">
+      <b>Twee rekeningen, één tafel</b>
+      <span>Eten en drinken staan op een eigen rekening. De bestelling zelf blijft op de tafel.</span></div>
+    <div class="veld" style="margin-top:14px"><label>Rekening</label>
+      <div class="tabs"><a class="t" asp-page="/Bills/Index">Eén rekening</a><a class="t aan" asp-page="/Bills/Split">Eten en drinken apart</a></div></div>
+    <div class="totalen">
+      <div class="tot-r"><span>Eten</span><span></span></div>
+      <div class="tot-r"><span>Drinken</span><span></span></div>
+      <div class="tot-lijn"></div>
+      <div class="tot-groot"><span>Totaal</span><b></b></div>
+      <button type="button" class="knop" style="margin-top:14px" data-print>Beide rekeningen printen</button>
+      <form method="post" asp-page="/Tables/Index" asp-page-handler="Close"><button type="submit" class="knop rood" style="margin-top:8px">Tafel sluiten: gast heeft betaald</button></form>
+      <a class="knop leeg" asp-page="/Orders/Index" style="margin-top:8px">Terug naar de tafel</a>
+    </div>
+  </aside>
+</div>

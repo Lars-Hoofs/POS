@@ -1,0 +1,19 @@
+@page
+@model SaveFailedModel
+@{
+    ViewData["Title"] = "Opslaan mislukt";
+    ViewData["Nav"] = "tables";
+}
+@* NFR-01, NFR-06: een fout blokkeert alleen deze ene actie. De rest van het systeem werkt door,
+     en wat al opgeslagen is, is niet weg. Geen technische foutmelding voor de bediening. *@
+<div class="app met-status"><div style="grid-column:1/-1" class="status offline"><span class="stip"></span>Opslaan van de laatste regel is niet gelukt · probeer het opnieuw</div>
+<partial name="_Rail" /><partial name="_OrderScreen" /></div>
+<div class="sluier"><form class="dlg smal" method="post" asp-page="/Orders/Index" asp-page-handler="AddLine">
+  <h2>Opslaan is niet gelukt</h2>
+  <p class="sub"></p>
+  <div class="melding">
+    <b>Er is niets verloren</b>
+    <span>De andere regels van de tafel zijn wel opgeslagen. Andere tafels kun je gewoon blijven gebruiken.</span>
+  </div>
+  <div class="acties"><a class="knop leeg" asp-page="/Orders/Index">Later</a><button type="submit" class="knop rood">Opnieuw proberen</button></div>
+</form></div>

@@ -1,0 +1,26 @@
+@page
+@model WishesModel
+@{
+    ViewData["Title"] = "Lijst met wensen";
+    ViewData["Nav"] = "menu";
+    ViewData["Role"] = "Manager";
+}
+@* FR-28: Ying beheert de standaardlijst die de bediening op scherm 04 aantikt. Een oude bon verandert niet mee. *@
+<div class="app">
+<partial name="_Rail" />
+  <main class="mid">
+    <div class="pagkop"><div><h1>Lijst met wensen</h1><p>op volgorde zoals de bediening ze ziet</p></div>
+      <div class="rechts"><a class="knop leeg" asp-page="/Menu/Index" style="width:auto;padding:9px 14px;font-size:13px">Terug naar menubeheer</a> <button type="button" class="knop leeg" style="width:auto;padding:9px 14px;font-size:13px" data-new-form="wish">Nieuwe wens</button></div></div>
+    <div style="padding:0 20px;overflow:hidden"><table>
+      <tr><th>Volgorde</th><th>Soort</th><th>Tekst</th></tr>
+      @* <tr><td>[volgorde]</td><td>[− Weglaten of + Extra]</td><td>[tekst]</td></tr> *@
+    </table></div>
+  </main>
+  <form class="paneel" method="post" asp-page="/Menu/Wishes" asp-page-handler="Save" data-form="wish">
+    <div class="tafelkop"><div><h1 data-form-title>Wens</h1><p data-form-subtitle></p></div></div>
+    <div class="veld" style="margin-top:0"><label>Soort</label><div class="tabs"><label class="t"><input type="radio" name="kind" value="Remove">− Weglaten</label><label class="t"><input type="radio" name="kind" value="Add">+ Extra</label></div></div>
+    <div class="veld"><label for="text">Tekst</label><input class="invoer" id="text" name="text" maxlength="50" autocomplete="off"></div>
+    <div class="melding info" style="margin-top:auto"><b>Oude bonnen veranderen niet</b><span>Een wens op een bestelregel bewaart zijn eigen tekst.</span></div>
+    <div class="acties" style="margin-top:14px"><button type="submit" class="knop leeg" asp-page="/Menu/Wishes" asp-page-handler="Remove">Van de lijst</button><button type="submit" class="knop rood">Opslaan</button></div>
+  </form>
+</div>

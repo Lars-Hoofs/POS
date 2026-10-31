@@ -1,0 +1,32 @@
+@page
+@model CancelModel
+@{
+    ViewData["Title"] = "Annuleren na versturen";
+    ViewData["Nav"] = "tables";
+}
+@* FR-11: een gerecht dat al naar de keuken is, annuleren geeft een annuleerbon. Dan hoeft niemand meer
+     de keuken in te rennen. Een regel die nog niet verstuurd is, verdwijnt gewoon. *@
+<div class="app"><partial name="_Rail" /><partial name="_OrderScreen" /></div>
+<div class="sluier"><form class="dlg" method="post" asp-page="/Orders/Index" asp-page-handler="CancelLine">
+  <h2>Regel annuleren?</h2>
+  <p class="sub"></p>
+
+  <div class="melding">
+    <b>De keuken is hier misschien al mee bezig</b>
+    <span>Er komt een annuleerbon, zodat de keuken weet dat het niet meer hoeft.</span>
+  </div>
+
+  <div class="veld"><label>Annuleerbon</label>
+<div class="papier klein">PEKING GARDEN · KEUKEN
+<b>*** ANNULEREN ***</b>
+<b>TAFEL</b>
+------------------------------
+   NIET MAKEN</div></div>
+
+  <div class="veld" style="display:flex;justify-content:space-between;align-items:baseline">
+    <span style="color:var(--muted);font-size:12.5px">Gaat van de rekening af</span>
+    <span style="font-family:var(--med);font-size:22px;letter-spacing:-.4px"></span>
+  </div>
+
+  <div class="acties"><a class="knop leeg" asp-page="/Orders/Index">Laten staan</a><button type="submit" class="knop rood">Annuleren en bon versturen</button></div>
+</form></div>

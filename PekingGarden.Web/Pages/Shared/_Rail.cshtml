@@ -1,0 +1,22 @@
+@* Gedeelde linkerbalk. Omzet en menubeheer ziet alleen de rol Manager (NFR-05). *@
+@{
+    var nav = ViewData["Nav"] as string;
+    var manager = ViewData["Role"] as string == "Manager";
+}
+<aside class="rail">
+  <div class="merk"><img class="glyph" src="~/icons/logo.svg" alt=""><b>Peking Garden</b></div>
+  <nav class="nav">
+    <a asp-page="/Tables/Index" class="@(nav == "tables" ? "actief" : "")"><span>Tafels</span><span class="telling"></span></a>
+    <a asp-page="/Tickets/Index"><span>Bonnen</span><span class="telling"></span></a>
+    @if (manager)
+    {
+        <a asp-page="/Revenue/Index" class="@(nav == "revenue" ? "actief" : "")"><span>Omzet</span><span class="telling"></span></a>
+        <a asp-page="/Menu/Index" class="@(nav == "menu" ? "actief" : "")"><span>Menubeheer</span><span class="telling"></span></a>
+    }
+  </nav>
+  <div class="onder">
+    <div class="kop">Ingelogd</div>
+    <div class="mw ik"><span class="bol ik"></span><span></span></div>
+    <a class="knop leeg klein" asp-page="/Login/Index">Wisselen</a>
+  </div>
+</aside>
