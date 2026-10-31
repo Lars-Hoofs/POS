@@ -1,0 +1,17 @@
+@page
+@model KitchenClosedModel
+@{
+    ViewData["Title"] = "Keuken gesloten";
+    ViewData["Nav"] = "tables";
+}
+@* FR-17 (Could): na 21:30 is de keuken dicht. Eten toevoegen geeft een waarschuwing; drinken kan altijd (Jieou 7). *@
+<div class="app"><partial name="_Rail" /><partial name="_OrderScreen" /></div>
+<div class="sluier"><div class="dlg smal">
+  <h2>De keuken is gesloten</h2>
+  <p class="sub">De keuken sluit om 21:30.</p>
+  <div class="melding">
+    <b>Vraag het eerst aan de keuken</b>
+    <span>Drankjes kun je gewoon blijven toevoegen.</span>
+  </div>
+  <div class="acties"><a class="knop leeg" asp-page="/Orders/Index">Niet toevoegen</a><a class="knop rood" asp-page="/Orders/Dish">Toch toevoegen</a></div>
+</div></div>

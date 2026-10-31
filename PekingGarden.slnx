@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="PekingGarden.DAL/PekingGarden.DAL.csproj" />
+  <Project Path="PekingGarden.Domain/PekingGarden.Domain.csproj" />
+  <Project Path="PekingGarden.Logic/PekingGarden.Logic.csproj" />
+  <Project Path="PekingGarden.Tests/PekingGarden.Tests.csproj" />
+  <Project Path="PekingGarden.Web/PekingGarden.Web.csproj" />
+</Solution>

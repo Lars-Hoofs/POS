@@ -1,0 +1,30 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Alle schermen";
+}
+<div class="mid overzicht">
+  <div class="pagkop"><div><h1>Alle schermen</h1><p>Nog zonder gegevens</p></div></div>
+  <div style="padding:0 20px 20px"><table>
+      <tr><th>Scherm</th><th>Laat zien</th><th>Requirements</th></tr>
+      <tr><td><a asp-page="/Login/Index">01 Inloggen</a></td><td>Pincode per medewerker</td><td>NFR-05</td></tr>
+      <tr><td><a asp-page="/Tables/Index">02 Tafels</a></td><td>16 tafels, vrij of open</td><td>FR-01, FR-02</td></tr>
+      <tr><td><a asp-page="/Orders/Index">03 Bestellen</a></td><td>Producten toevoegen, verstuurde en nieuwe regels</td><td>FR-03, FR-21, FR-25, FR-26, NFR-03, NFR-07</td></tr>
+      <tr><td><a asp-page="/Orders/Dish">04 Gerecht</a></td><td>Bijgerecht met toeslag, aanpassing − / +</td><td>FR-04, FR-05, FR-27, NFR-02</td></tr>
+      <tr><td><a asp-page="/Orders/IceCream">05 IJs</a></td><td>Saus en slagroom</td><td>FR-18</td></tr>
+      <tr><td><a asp-page="/Orders/SetMenu">06 Menu voor 2</a></td><td>Keuzes en de regel voor het derde bijgerecht</td><td>FR-15</td></tr>
+      <tr><td><a asp-page="/Orders/Sent">07 Versturen</a></td><td>Wat verstuurd is: keukenbon per gang en drankbon, alleen nieuwe regels</td><td>FR-21, NFR-04</td></tr>
+      <tr><td><a asp-page="/Orders/Cancel">08 Annuleren</a></td><td>Annuleerbon voor een verstuurd gerecht</td><td>FR-11</td></tr>
+      <tr><td><a asp-page="/Tables/Move">09 Verplaatsen</a></td><td>Verplaatsen, samenvoegen</td><td>FR-12</td></tr>
+      <tr><td><a asp-page="/Bills/Index">10 Rekening</a></td><td>Btw per tarief, opnieuw printen, tafel sluiten</td><td>FR-09, FR-19</td></tr>
+      <tr><td><a asp-page="/Revenue/Index">11 Omzet</a></td><td>Omzet per dag voor de manager</td><td>FR-16, NFR-05</td></tr>
+      <tr><td><a asp-page="/Menu/Index">12 Menubeheer</a></td><td>Prijs, gang, btw en keuzes per product</td><td>FR-14, FR-24, FR-30, NFR-05</td></tr>
+      <tr><td><a asp-page="/Orders/SaveFailed">13 Opslaan mislukt</a></td><td>Een fout blokkeert alleen die ene actie</td><td>NFR-01, NFR-06</td></tr>
+      <tr><td><a asp-page="/Orders/KitchenClosed">14 Keuken gesloten</a></td><td>Waarschuwing na 21:30</td><td>FR-17</td></tr>
+      <tr><td><a asp-page="/Bills/Split">15 Eten en drinken apart</a></td><td>Twee rekeningen voor één tafel</td><td>FR-13</td></tr>
+      <tr><td><a asp-page="/Tickets/Index">16 Bonnen</a></td><td>Open keukenbonnen en drankbonnen, klaar melden</td><td>FR-07, FR-20, FR-22, NFR-04</td></tr>
+      <tr><td><a asp-page="/Orders/NotSent">17 Niet verstuurd</a></td><td>Waarschuwing voor de rekening</td><td>FR-09</td></tr>
+      <tr><td><a asp-page="/Orders/EditLine">18 Regel wijzigen</a></td><td>Een nieuwe regel wijzigen of verwijderen</td><td>FR-25, FR-26</td></tr>
+      <tr><td><a asp-page="/Menu/Wishes">19 Lijst met wensen</a></td><td>De standaardlijst beheren</td><td>FR-28, NFR-05</td></tr>
+  </table></div>
+</div>

@@ -1,0 +1,17 @@
+@page
+@model NotSentModel
+@{
+    ViewData["Title"] = "Niet verstuurd";
+    ViewData["Nav"] = "tables";
+}
+@* UC-09 2a: er staan producten op de tafel die nog niet verstuurd zijn. Eerst versturen, of toch de rekening. *@
+<div class="app"><partial name="_Rail" /><partial name="_OrderScreen" /></div>
+<div class="sluier"><div class="dlg smal">
+  <h2>Nog niet alles is verstuurd</h2>
+  <p class="sub"></p>
+  <div class="melding">
+    <b></b>
+    <span>Verstuur ze eerst, of ga door als ze niet meer nodig zijn.</span>
+  </div>
+  <div class="acties"><a class="knop leeg" asp-page="/Bills/Index">Toch naar de rekening</a><form method="post" asp-page="/Orders/Sent"><button type="submit" class="knop rood">Eerst versturen</button></form></div>
+</div></div>

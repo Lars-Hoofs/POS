@@ -1,0 +1,33 @@
+@page
+@model DishModel
+@{
+    ViewData["Title"] = "Gerecht met bijgerecht en aanpassing";
+    ViewData["Nav"] = "tables";
+}
+@* FR-04: witte rijst staat al aan, een ander bijgerecht geeft de toeslag.
+     FR-05: wensen komen uit de standaardlijst; FR-27: wat er niet in staat, wordt getypt.
+     Vervangen is een weglaat-wens en een extra-wens onder elkaar, zoals de keuken het op de bon wil. *@
+<div class="app"><partial name="_Rail" /><partial name="_OrderScreen" /></div>
+<div class="sluier"><form class="dlg" method="post" asp-page="/Orders/Index" asp-page-handler="AddLine">
+  <h2></h2>
+  <p class="sub"></p>
+
+  <div class="veld"><label>Bijgerecht</label>
+    <div class="keuzes drie">
+      @* <label class="keuze"><input type="radio" name="sideDish" value="[naam]">[naam]<span class="delta">[toeslag]</span></label> *@
+    </div></div>
+
+  <div class="veld"><label>Wens voor de keuken</label>
+    <div class="tabs" style="grid-template-columns:repeat(3,1fr)"><label class="t"><input type="radio" name="wishKind" value="Remove" checked>− Weglaten</label><label class="t"><input type="radio" name="wishKind" value="Add">+ Extra</label><label class="t"><input type="radio" name="wishKind" value="Replace">Vervangen</label></div>
+    <input class="invoer" style="margin-top:8px" name="wishText" maxlength="50" placeholder="Typ een wens die niet in de lijst staat" autocomplete="off">
+    <div class="chips" style="margin-top:8px">
+      @* <label class="chip"><input type="checkbox" name="wishes" value="[wens]">[− of +] [wens]</label> *@
+    </div></div>
+
+  <div class="veld" style="display:flex;align-items:center;justify-content:space-between">
+    <div><label style="margin-bottom:4px">Aantal</label><span class="stap" data-stepper><button type="button" data-delta="-1"><img src="~/icons/min.svg" alt="min"></button><b>1</b><button type="button" class="plus" data-delta="1"><img src="~/icons/plus.svg" alt="plus"></button><input type="hidden" name="quantity" value="1"></span></div>
+    <div style="text-align:right"><label style="margin-bottom:4px">Regeltotaal</label>
+      <span style="font-family:var(--med);font-size:22px;letter-spacing:-.4px"></span></div></div>
+
+  <div class="acties"><a class="knop leeg" asp-page="/Orders/Index">Annuleren</a><button type="submit" class="knop rood">Toevoegen aan de tafel</button></div>
+</form></div>

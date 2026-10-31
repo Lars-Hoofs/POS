@@ -1,0 +1,39 @@
+@page
+@model SentModel
+@{
+    ViewData["Title"] = "Versturen: keukenbon en drankbon";
+    ViewData["Nav"] = "tables";
+}
+@* UC-21, R-04, R-08: alleen de nieuwe regels gaan eruit. Eten op de keukenbon, per gang,
+     met naam en bijgerecht, wensen op een eigen regel met − en +. Drankjes op een eigen bon.
+     De bevestiging voor de bediening; de bonnen staan daarna op het bonnenscherm (16). *@
+<div class="app geen-paneel">
+<partial name="_Rail" />
+  <main class="mid">
+    <div class="pagkop">
+      <div><h1>Verstuurd</h1><p></p></div>
+      <div class="rechts"><a class="knop leeg" asp-page="/Orders/Index" style="width:auto;padding:9px 14px;font-size:13px">Terug naar de tafel</a>
+        <a class="knop rood" asp-page="/Tickets/Index" style="width:auto;padding:9px 14px;font-size:13px">Naar de bonnen</a></div>
+    </div>
+    <div class="bonnen">
+      <div><div class="bijschrift">Keukenbon · voor de keuken</div>
+<div class="papier">PEKING GARDEN · KEUKEN
+<b>TAFEL</b>
+--------------------------------
+--------------------------------</div></div>
+      <div><div class="bijschrift">Drankbon · voor de bediening</div>
+<div class="papier">PEKING GARDEN · DRANKEN
+<b>TAFEL</b>
+--------------------------------
+--------------------------------</div></div>
+      <div style="max-width:210px;align-self:center">
+        <div class="melding info" style="margin-top:0">
+          <b>Alleen de nieuwe regels</b>
+          <span>Regels die al verstuurd zijn, komen niet opnieuw mee.</span></div>
+        <div class="melding info">
+          <b>Op het scherm</b>
+          <span>De keuken ziet de bon binnen een paar seconden. Een bonprinter valt buiten de scope.</span></div>
+      </div>
+    </div>
+  </main>
+</div>
