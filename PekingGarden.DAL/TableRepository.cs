@@ -1,3 +1,4 @@
+using Microsoft.Data.SqlClient;
 using PekingGarden.Domain;
 using PekingGarden.Logic.Interfaces;
 
@@ -5,13 +6,27 @@ namespace PekingGarden.DAL;
 
 public class TableRepository : ITableRepository
 {
+    private readonly string connectionString;
+    
+    public  TableRepository(string connectionString)
+    {
+        this.connectionString = connectionString;
+    }
+
     public List<DiningTable> GetTables()
     {
-        return new List<DiningTable>()
+        List<DiningTable> tables = new List<DiningTable>();
+
+        using SqlConnection connection = new SqlConnection(connectionString);
+        using SqlCommand command = new SqlCommand("SELECT Id, Name FROM DiningTable ORDER BY  SortOrder", connection);
+        
+        connection.Open();
+        using SqlDataReader reader = command.ExecuteReader();
+
+        while (reader.Read())
         {
-            new DiningTable(1, "1"),
-            new DiningTable(2, "2"),
-            new DiningTable(3, "3")
-        };
+            tables.Add(new DiningTable(reader.GetInt32(0), reader.GetString(1)));
+        }
+        return tables;
     }
 }
