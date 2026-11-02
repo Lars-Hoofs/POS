@@ -1,16 +1,19 @@
 using PekingGarden.Domain;
+using PekingGarden.Logic.Interfaces;
 
 namespace PekingGarden.Logic.Services;
 
 public class TableService
 {
+    private readonly ITableRepository tableRepository;
+
+    public TableService(ITableRepository tableRepository)
+    {
+        this.tableRepository = tableRepository;
+    }
+
     public List<DiningTable> GetDiningTables()
     {
-        return new List<DiningTable>
-        {
-            new DiningTable(1, "1"),
-            new DiningTable(2, "2"),
-            new DiningTable(3, "3")
-        };
-    }    
+        return tableRepository.GetTables();
+    }
 }

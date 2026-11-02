@@ -7,10 +7,15 @@ namespace PekingGarden.Web.Pages.Tables;
 
 public class IndexModel : PageModel
 {
+    private readonly TableService tableService;
     public List<DiningTable> Tables { get; set; } = new();
+
+    public IndexModel(TableService tableService)
+    {
+        this.tableService = tableService;
+    }
     public void OnGet()
     {
-        TableService service = new TableService();
-        Tables = service.GetDiningTables();
+        Tables = tableService.GetDiningTables();
     }
 }

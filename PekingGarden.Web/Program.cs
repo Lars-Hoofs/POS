@@ -1,6 +1,12 @@
+using PekingGarden.DAL;
+using PekingGarden.Logic.Interfaces;
+using PekingGarden.Logic.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages();
+builder.Services.AddScoped<ITableRepository, TableRepository>();
+builder.Services.AddScoped<TableService>();
 
 var app = builder.Build();
 
