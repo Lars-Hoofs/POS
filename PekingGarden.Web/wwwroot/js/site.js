@@ -1,5 +1,3 @@
-// Alleen wat het scherm zelf doet. Alles wat opgeslagen moet worden, gaat met een formulier naar de server.
-
 document.querySelectorAll("[data-order-screen]").forEach(screen => {
   const buttons = screen.querySelectorAll("[data-category]");
   const panes = screen.querySelectorAll("[data-category-pane]");
@@ -38,7 +36,6 @@ document.querySelectorAll("[data-search]").forEach(input => {
   });
 });
 
-// R-07: het aantal is 1 tot en met 99. De server moet dit ook controleren.
 document.querySelectorAll("[data-stepper]").forEach(stepper => {
   const shown = stepper.querySelector("b");
   const value = stepper.querySelector("input");

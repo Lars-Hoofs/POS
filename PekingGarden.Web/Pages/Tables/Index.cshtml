@@ -4,7 +4,6 @@
     ViewData["Title"] = "Tafels";
     ViewData["Nav"] = "tables";
 }
-@* FR-01, FR-02: alle 16 tafels, vrij of open. Iedereen bedient elke tafel, dus er is geen "eigen tafel". *@
 <div class="app geen-paneel">
 <partial name="_Rail" />
   <main class="mid">
@@ -16,10 +15,6 @@
       <div class="zone" style="flex:1;min-height:0">
         <div class="zkop"><span>Restaurant</span><span>tik op een tafel om te bestellen</span></div>
         <div class="grid-t">
-          @* Vrije tafel:
-          <a class="tafel vrij" asp-page="/Orders/Index" asp-route-table="[nummer]"><b>[nummer]</b><span class="st">vrij</span></a>
-          Open tafel, met "mijn" als er regels zijn die nog niet verstuurd zijn:
-          <a class="tafel bezet mijn" asp-page="/Orders/Index" asp-route-table="[nummer]"><b>[nummer]</b><span class="st">geopend [tijd] · <span style="color:var(--signal)">[aantal] nieuw</span></span><span class="bed">[bedrag]</span></a> *@
         </div>
       </div>
     </div>

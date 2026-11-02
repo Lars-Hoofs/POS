@@ -4,8 +4,6 @@
     ViewData["Title"] = "Keuzemenu voor 2";
     ViewData["Nav"] = "tables";
 }
-@* FR-15: 1 voorgerecht en 3 hoofdgerechten uit een vaste lijst. Twee bijgerechten zijn inbegrepen
-     (nasi of bami + 0,50); vanaf het derde bijgerecht kost elk bijgerecht 3,50. *@
 <div class="app"><partial name="_Rail" /><partial name="_OrderScreen" /></div>
 <div class="sluier"><form class="dlg breed" method="post" asp-page="/Orders/Index" asp-page-handler="AddSetMenu">
   <div style="display:flex;align-items:flex-start;justify-content:space-between">
@@ -16,21 +14,17 @@
 
   <div class="veld"><label>Voorgerecht</label>
     <div class="keuzes vier">
-      @* <label class="keuze"><input type="radio" name="starter" value="[gerecht]">[gerecht]</label> *@
     </div></div>
 
   <div class="veld"><label>Hoofdgerechten</label>
     <div class="keuzes vier">
-      @* <label class="keuze"><input type="checkbox" name="mains" value="[gerecht]">[gerecht]</label> *@
     </div></div>
 
   <div class="veld"><label>Bijgerechten</label>
     <div class="keuzes vier">
-      @* <button type="button" class="keuze" data-counter><span>[bijgerecht]</span><span class="teller">0</span><input type="hidden" name="sideDishes[[bijgerecht]]" value="0"></button> *@
     </div></div>
 
   <div style="margin-top:14px">
-    @* <div class="tot-r"><span>[omschrijving]</span><span>[bedrag]</span></div> *@
     <div class="tot-lijn"></div>
     <div class="tot-groot"><span>Regeltotaal</span><b></b></div>
   </div>

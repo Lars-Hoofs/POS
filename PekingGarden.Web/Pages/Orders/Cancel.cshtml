@@ -4,8 +4,6 @@
     ViewData["Title"] = "Annuleren na versturen";
     ViewData["Nav"] = "tables";
 }
-@* FR-11: een gerecht dat al naar de keuken is, annuleren geeft een annuleerbon. Dan hoeft niemand meer
-     de keuken in te rennen. Een regel die nog niet verstuurd is, verdwijnt gewoon. *@
 <div class="app"><partial name="_Rail" /><partial name="_OrderScreen" /></div>
 <div class="sluier"><form class="dlg" method="post" asp-page="/Orders/Index" asp-page-handler="CancelLine">
   <h2>Regel annuleren?</h2>

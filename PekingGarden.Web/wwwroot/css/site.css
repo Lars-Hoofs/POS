@@ -1,24 +1,22 @@
-/* Kassasysteem Peking Garden. Vult het hele scherm; onder 900 px staan de kolommen onder elkaar. */
-
 :root{
-  --ink:#0D0C0C;          /* achtergrond */
-  --panel:#141212;        /* paneel */
-  --panel-2:#1B1918;      /* tegel */
-  --panel-3:#232120;      /* tegel actief / hover */
-  --line:#2E2B2A;         /* scheiding */
-  --line-2:#403C3A;       /* sterkere scheiding */
-  --paper:#F1EEE6;        /* primaire tekst */
-  --paper-dim:#D6D2C9;    /* secundaire tekst */
-  --muted:#8E8A86;        /* labels */
-  --muted-2:#66625F;      /* uitgegrijsd */
-  --red:#A8201D;          /* accent: selectie, primaire actie */
-  --signal:#EE2324;       /* signaal: fout, wijziging, offline */
-  --ok:#3E7D62;           /* bevestiging, klaar */
-  --amber:#B8862B;        /* wachtend, in bereiding */
+  --ink:#0D0C0C;
+  --panel:#141212;
+  --panel-2:#1B1918;
+  --panel-3:#232120;
+  --line:#2E2B2A;
+  --line-2:#403C3A;
+  --paper:#F1EEE6;
+  --paper-dim:#D6D2C9;
+  --muted:#8E8A86;
+  --muted-2:#66625F;
+  --red:#A8201D;
+  --signal:#EE2324;
+  --ok:#3E7D62;
+  --amber:#B8862B;
   --sans:"FK Grotesk Neue","Helvetica Neue",Arial,sans-serif;
   --med:"FK Grotesk Neue Medium","FK Grotesk Neue","Helvetica Neue",Arial,sans-serif;
   --label:"TWK Lausanne 400","FK Grotesk Neue",Arial,sans-serif;
-  --r:4px;                /* straal: strak, niet rond */
+  --r:4px;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -29,12 +27,10 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 
-/* ---------- raamwerk ---------- */
 .app{display:grid;grid-template-columns:172px minmax(0,1fr) clamp(300px,24vw,380px);height:100vh;height:100dvh}
 .app.geen-paneel{grid-template-columns:172px minmax(0,1fr)}
 .app.vol{grid-template-columns:minmax(0,1fr)}
 
-/* linkerbalk */
 .rail{background:var(--panel);border-right:1px solid var(--line);display:flex;flex-direction:column;padding:18px 0}
 .merk{display:flex;align-items:center;gap:9px;padding:0 18px 22px}
 .merk .glyph{width:22px;height:22px;flex:none;display:block}
@@ -54,7 +50,6 @@ body{
 .mw span{font-size:12.5px;color:var(--muted)}
 .mw.ik span{color:var(--paper)}
 
-/* middenkolom */
 .mid{display:flex;flex-direction:column;min-width:0;background:var(--ink)}
 .topbalk{display:flex;align-items:center;gap:12px;padding:16px 20px 12px}
 .zoek{flex:1;display:flex;align-items:center;gap:10px;background:var(--panel-2);border:1px solid var(--line);
@@ -63,7 +58,6 @@ body{
 .zoek input{all:unset;flex:1;color:var(--paper);font-family:var(--sans);font-size:14px}
 .zoek .hint{font-family:var(--label);font-size:10.5px;color:var(--muted-2);letter-spacing:.06em}
 
-/* tegels */
 .strook{padding:0 20px 12px;overflow:hidden}
 .strook .kop{font-family:var(--label);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
   color:var(--muted-2);margin:6px 0 10px;display:flex;justify-content:space-between}
@@ -90,7 +84,6 @@ body{
 .stap b{font-family:var(--med);font-size:13px;min-width:9px;text-align:center;font-weight:500}
 .stap b.nul{color:var(--muted-2)}
 
-/* rechterpaneel */
 .paneel{background:var(--panel);border-left:1px solid var(--line);display:flex;flex-direction:column;padding:18px 18px 16px}
 .paneel .tafelkop{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px}
 .paneel .tafelkop h1{font-family:var(--med);font-size:22px;font-weight:500;letter-spacing:-.4px}
@@ -119,7 +112,6 @@ body{
 .knop.leeg{background:transparent;color:var(--paper-dim);border:1px solid var(--line-2)}
 .knop.uit{background:var(--panel-3);color:var(--muted-2)}
 
-/* onderbalk met open tafels */
 .tafelbalk{overflow-x:auto;flex:none;margin-top:auto;border-top:1px solid var(--line);display:flex;gap:0;padding:0 20px}
 .tb{display:flex;align-items:center;gap:9px;padding:12px 14px 12px 0;margin-right:14px;border-right:1px solid var(--line);white-space:nowrap}
 .tb:last-child{border-right:none}
@@ -132,12 +124,10 @@ body{
 .pil.nieuw{color:var(--paper-dim);border-color:var(--line-2);background:var(--panel-3)}
 .pil.let{color:var(--signal);border-color:#4A1715;background:#251010}
 
-/* statusbalk boven */
 .status{display:flex;align-items:center;gap:9px;padding:8px 20px;font-family:var(--label);font-size:11px}
 .status.offline{background:#251010;border-bottom:1px solid #4A1715;color:#F0B4B2}
 .status .stip{width:7px;height:7px;border-radius:50%;background:currentColor;flex:none}
 
-/* dialoog */
 .sluier{position:fixed;inset:0;background:rgba(6,5,5,.72);display:grid;place-items:center;padding:16px;z-index:5}
 .dlg{width:min(520px,100%);max-height:100%;overflow-y:auto;background:var(--panel);border:1px solid var(--line-2);border-radius:6px;padding:22px 24px 20px}
 .dlg.smal{width:min(420px,100%)}
@@ -158,7 +148,6 @@ label{display:block;font-family:var(--label);font-size:9.5px;letter-spacing:.14e
 .melding b{font-family:var(--med);font-size:12.5px;font-weight:500;color:#F0B4B2;display:block}
 .melding span{font-size:12px;color:#C69B99}
 
-/* pincode */
 .pin{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;width:258px}
 .pin button,.pin .leeg{background:var(--panel-2);border:1px solid var(--line);border-radius:var(--r);height:58px;display:grid;place-items:center;
   font-family:var(--med);font-size:21px;font-weight:500}
@@ -168,21 +157,18 @@ label{display:block;font-family:var(--label);font-size:9.5px;letter-spacing:.14e
 .bollen i{width:13px;height:13px;border-radius:50%;border:1px solid var(--line-2);display:block}
 .bollen i.vol{background:var(--paper);border-color:var(--paper)}
 
-/* tabel */
 table{width:100%;border-collapse:collapse}
 th{font-family:var(--label);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);
   text-align:left;padding:0 12px 9px;border-bottom:1px solid var(--line-2)}
 td{padding:11px 12px;border-bottom:1px solid var(--line);font-size:13px}
 td.num,th.num{text-align:right}
 
-/* kaarten dashboard */
 .kaarten{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
 .kaart{background:var(--panel-2);border:1px solid var(--line);border-radius:var(--r);padding:14px}
 .kaart .kop{font-family:var(--label);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2)}
 .kaart b{display:block;font-family:var(--med);font-size:26px;font-weight:500;letter-spacing:-.6px;margin-top:8px}
 .kaart span{font-size:11.5px;color:var(--muted)}
 
-/* keukenscherm */
 .kds{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));align-content:start;gap:10px;padding:0 18px 16px;flex:1;min-height:0;overflow-y:auto}
 .bon{background:var(--panel-2);border:1px solid var(--line);border-radius:var(--r);display:flex;flex-direction:column;overflow:hidden}
 .bon.urgent{border-color:var(--signal)}
@@ -199,13 +185,11 @@ td.num,th.num{text-align:right}
 .bon .bonvoet{padding:9px 13px;border-top:1px solid var(--line);display:flex;gap:7px}
 .bon .bonvoet .knop{padding:9px;font-size:13px}
 
-/* koppen in volle schermen */
 .pagkop{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;justify-content:space-between;padding:18px 20px 14px}
 .pagkop h1{font-family:var(--med);font-size:20px;font-weight:500;letter-spacing:-.4px}
 .pagkop p{font-family:var(--label);font-size:11px;color:var(--muted);margin-top:2px}
 .pagkop .rechts{display:flex;gap:8px;align-items:center}
 
-/* tafelplattegrond */
 .zone{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;min-height:0}
 .zone .zkop{font-family:var(--label);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);margin-bottom:11px;
   display:flex;justify-content:space-between}
@@ -236,7 +220,6 @@ a.knop{text-decoration:none}
 .cats{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}
 .cat{min-height:44px}
 
-/* keuzes binnen een optiegroep: precies een is gekozen */
 .keuzes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
 .keuzes.drie{grid-template-columns:repeat(3,minmax(0,1fr))}
 .keuze{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--panel-2);border:1px solid var(--line);
@@ -246,7 +229,6 @@ a.knop{text-decoration:none}
 .keuze.aan .delta{color:var(--paper-dim)}
 .keuze .teller{font-family:var(--med);font-size:13px;color:var(--paper)}
 
-/* papieren bon: keukenbon, drankbon, annuleerbon en rekening */
 .bonnen{display:flex;flex-wrap:wrap;gap:26px;justify-content:center;align-items:flex-start;padding:4px 20px 16px;flex:1;min-height:0;overflow:auto}
 .papier{background:#F7F5F0;color:#0D0C0C;font-family:Menlo,"SF Mono",monospace;font-size:12px;line-height:1.55;
   padding:16px 18px 20px;border-radius:2px;white-space:pre;box-shadow:0 12px 32px rgba(0,0,0,.55)}
@@ -256,12 +238,10 @@ a.knop{text-decoration:none}
 .mwkeuze .bol{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:11px;flex:none;
   font-family:var(--med);background:var(--panel-3);color:var(--paper-dim);border:1px solid var(--line-2)}
 .mwkeuze .bol.ik{background:var(--red);color:#fff;border-color:var(--red)}
-/* neutrale uitleg, geen fout */
 .melding.info{background:var(--panel-2);border-color:var(--line-2)}
 .melding.info b{color:var(--paper-dim)}
 .melding.info span{color:var(--muted)}
 
-/* ---------- echte links, knoppen en invoervelden ---------- */
 .tafel,.prod,.regel,.tb,.pil,td a{text-decoration:none;color:inherit}
 button{font:inherit;color:inherit;cursor:pointer}
 [hidden]{display:none !important}
@@ -282,7 +262,6 @@ button.tb{background:none;border-width:0 1px 0 0;border-style:solid;border-color
 input[type=search]{appearance:none}
 .zoek input::placeholder,.invoer::placeholder{color:var(--muted-2)}
 
-/* keuzes zijn radio buttons en checkboxes: de browser onthoudt wat aan staat, zonder JavaScript */
 label.keuze,label.chip,label.t,label.m{position:relative;margin:0;letter-spacing:normal;text-transform:none;cursor:pointer}
 label.keuze,label.chip,label.m{font-family:var(--sans)}
 .keuze input[type=radio],.keuze input[type=checkbox],.chip input,.t input,.m input{position:absolute;opacity:0;pointer-events:none}
@@ -305,7 +284,6 @@ td.zacht{color:var(--muted)}
 .overzicht{height:100vh;height:100dvh;overflow:auto}
 .overzicht a{color:var(--paper)}
 
-/* ---------- schermindelingen ---------- */
 .app.inloggen{grid-template-columns:1fr 1fr}
 .inloggen-namen{display:flex;flex-direction:column;justify-content:space-between;padding:44px 48px;background:var(--panel);border-right:1px solid var(--line)}
 .app.met-status{grid-template-rows:auto minmax(0,1fr)}
