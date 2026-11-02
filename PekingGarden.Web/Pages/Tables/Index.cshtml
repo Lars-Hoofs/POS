@@ -15,7 +15,7 @@
       <div class="zone" style="flex:1;min-height:0">
         <div class="zkop"><span>Restaurant</span><span>tik op een tafel om te bestellen</span></div>
         <div class="grid-t">
-          @foreach (var table in Model.TableNumbers)
+          @foreach (var table in Model.Tables)
           {
             <div class="tafel vrij"><b>@table.Name</b><span class="st">vrij</span></div>
           }
