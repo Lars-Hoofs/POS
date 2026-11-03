@@ -3,8 +3,6 @@
 @{
     ViewData["Title"] = "Bonnen";
 }
-@* UC-07, UC-20, UC-22: de open bonnen, oudste eerst, ververst vanzelf. Klaar haalt een bon van het scherm;
-     de laatste klaar gemelde bon kan terug. Dit scherm is voor de keuken, daarom zonder linkerbalk en pincode. *@
 <div class="app vol">
   <main class="mid">
     <div class="pagkop">
@@ -13,24 +11,8 @@
         <div class="tabs" style="width:280px"><button type="button" class="t aan" style="padding:9px" data-tab="kitchen">Keuken</button><button type="button" class="t" style="padding:9px" data-tab="drinks">Drank</button></div></div>
     </div>
     <div class="kds" data-tab-pane="kitchen">
-        @* <div class="bon">
-          <div class="bonkop"><b>Tafel [nummer]</b><i>[tijd]</i></div>
-          <ul>
-            <li style="font-size:11px;letter-spacing:.1em;color:var(--muted)">[gang]</li>
-            <li><span class="a">[aantal]</span><span>[product]<em>[bijgerecht of wens]</em></span></li>
-          </ul>
-          <div class="bonvoet"><form method="post" asp-page="/Tickets/Index" asp-page-handler="Done"><button type="submit" class="knop">Klaar</button></form></div>
-        </div>
-        Annuleerbon: <div class="bon urgent">, in de kop [tijd] met class="laat", de regel met <li class="weg"> en de knop Gezien. *@
     </div>
     <div class="kds" data-tab-pane="drinks" hidden>
-        @* <div class="bon">
-          <div class="bonkop"><b>Tafel [nummer]</b><i>[tijd]</i></div>
-          <ul>
-            <li><span class="a">[aantal]</span><span>[drankje]</span></li>
-          </ul>
-          <div class="bonvoet"><form method="post" asp-page="/Tickets/Index" asp-page-handler="Done"><button type="submit" class="knop">Klaar</button></form></div>
-        </div> *@
     </div>
     <div class="tafelbalk">
       <div class="tb"><span class="info"><b>Laatste klaar</b><i>per ongeluk gemeld?</i></span></div>

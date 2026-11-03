@@ -4,7 +4,6 @@
     ViewData["Title"] = "IJs met saus en slagroom";
     ViewData["Nav"] = "tables";
 }
-@* FR-18: ijs gebruikt dezelfde optiegroepen als een bijgerecht, alleen andere groepen: saus en slagroom. *@
 <div class="app"><partial name="_Rail" /><partial name="_OrderScreen" /></div>
 <div class="sluier"><form class="dlg smal" method="post" asp-page="/Orders/Index" asp-page-handler="AddLine">
   <h2></h2>
@@ -12,12 +11,10 @@
 
   <div class="veld"><label>Saus</label>
     <div class="keuzes drie">
-      @* <label class="keuze"><input type="radio" name="sauce" value="[saus]">[saus]</label> *@
     </div></div>
 
   <div class="veld"><label>Slagroom</label>
     <div class="keuzes">
-      @* <label class="keuze"><input type="radio" name="whippedCream" value="[keuze]">[keuze]</label> *@
     </div></div>
 
   <div class="veld" style="display:flex;align-items:center;justify-content:space-between">

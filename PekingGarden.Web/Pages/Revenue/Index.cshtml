@@ -5,8 +5,6 @@
     ViewData["Nav"] = "revenue";
     ViewData["Role"] = "Manager";
 }
-@* FR-16 (Could): Ying wil als manager de omzet per dag zien. Alleen zichtbaar voor de rol Manager (NFR-05).
-     De cijfers zijn voorbeeldcijfers. *@
 <div class="app geen-paneel">
 <partial name="_Rail" />
   <main class="mid">
@@ -25,14 +23,12 @@
         <div class="zkop"><span>Meest besteld</span><span>aantal · omzet</span></div>
         <table>
           <tr><th>Nr</th><th>Product</th><th class="num">Aantal</th><th class="num">Omzet</th></tr>
-          @* <tr><td>[nummer]</td><td>[product]</td><td class="num">[aantal]</td><td class="num">[omzet]</td></tr> *@
         </table>
       </div>
       <div class="zone">
         <div class="zkop"><span>Afgelopen week</span><span>omzet per dag</span></div>
         <table>
           <tr><th>Dag</th><th class="num">Tafels</th><th class="num">Omzet</th></tr>
-          @* <tr><td>[dag]</td><td class="num">[tafels]</td><td class="num">[omzet]</td></tr> *@
         </table>
       </div>
     </div>

@@ -4,9 +4,6 @@
     ViewData["Title"] = "Gerecht met bijgerecht en aanpassing";
     ViewData["Nav"] = "tables";
 }
-@* FR-04: witte rijst staat al aan, een ander bijgerecht geeft de toeslag.
-     FR-05: wensen komen uit de standaardlijst; FR-27: wat er niet in staat, wordt getypt.
-     Vervangen is een weglaat-wens en een extra-wens onder elkaar, zoals de keuken het op de bon wil. *@
 <div class="app"><partial name="_Rail" /><partial name="_OrderScreen" /></div>
 <div class="sluier"><form class="dlg" method="post" asp-page="/Orders/Index" asp-page-handler="AddLine">
   <h2></h2>
@@ -14,14 +11,12 @@
 
   <div class="veld"><label>Bijgerecht</label>
     <div class="keuzes drie">
-      @* <label class="keuze"><input type="radio" name="sideDish" value="[naam]">[naam]<span class="delta">[toeslag]</span></label> *@
     </div></div>
 
   <div class="veld"><label>Wens voor de keuken</label>
     <div class="tabs" style="grid-template-columns:repeat(3,1fr)"><label class="t"><input type="radio" name="wishKind" value="Remove" checked>− Weglaten</label><label class="t"><input type="radio" name="wishKind" value="Add">+ Extra</label><label class="t"><input type="radio" name="wishKind" value="Replace">Vervangen</label></div>
     <input class="invoer" style="margin-top:8px" name="wishText" maxlength="50" placeholder="Typ een wens die niet in de lijst staat" autocomplete="off">
     <div class="chips" style="margin-top:8px">
-      @* <label class="chip"><input type="checkbox" name="wishes" value="[wens]">[− of +] [wens]</label> *@
     </div></div>
 
   <div class="veld" style="display:flex;align-items:center;justify-content:space-between">

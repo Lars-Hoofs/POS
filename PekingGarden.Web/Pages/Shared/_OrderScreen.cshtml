@@ -1,38 +1,22 @@
-@* De bestelling van een tafel. 03 Bestellen gebruikt dit scherm, en de dialogen liggen eroverheen.
-   UC-03: producten links per categorie, de bestelling rechts, op regelnummer. Verstuurde regels zijn gedimd.
-   Een nieuwe regel aantikken is wijzigen (UC-25) of verwijderen (UC-26), een verstuurde regel annuleren (UC-11). *@
 <main class="mid" data-order-screen>
   <div class="topbalk">
     <div class="zoek"><img class="zoekicoon" src="~/icons/zoek.svg" alt=""><input type="search" data-product-search placeholder="Zoeken"><span class="hint">nummer of naam</span></div>
   </div>
   <div class="strook"><div class="kop"><span>Categorieën</span><span></span></div>
     <div class="cats">
-      @* <button type="button" class="cat" data-category="[categorie]"><b>[categorie]</b><span>[aantal producten]</span></button> *@
     </div>
   </div>
   <div class="strook producten"><div class="kop"><span data-category-title></span><span>tik om toe te voegen</span></div>
     <div class="scroll">
-      @* Per categorie een blok. De eerste categorie wordt getoond door site.js.
-      <div class="prods" data-category-pane="[categorie]" hidden>
-        Gerecht (asp-page /Orders/Dish), ijs (/Orders/IceCream) of menu (/Orders/SetMenu):
-        <a class="prod" data-row asp-page="/Orders/Dish" asp-route-product="[nummer]"><span class="nr">[nummer]</span><span class="naam">[naam]</span><span class="toel">[toelichting]</span><div class="voet"><span class="prijs">[prijs]</span><span class="stap"><i class="plus"><img src="~/icons/plus.svg" alt="toevoegen"></i></span></div></a>
-        Drankje, gaat direct op de bestelling:
-        <form method="post" asp-page="/Orders/Index" asp-page-handler="AddDrink" asp-route-product="[naam]"><button type="submit" class="prod" data-row>[zelfde inhoud]</button></form>
-      </div> *@
     </div>
   </div>
   <div class="tafelbalk">
-    @* <a class="tb" asp-page="/Orders/Index" asp-route-table="[nummer]"><span class="tag">[nummer]</span><span class="info"><b>Tafel [nummer]</b><i>[bedrag of aantal nieuw]</i></span></a>
-    De huidige tafel krijgt class="tb actief". *@
   </div>
 </main>
 <aside class="paneel">
   <div class="tafelkop"><div><h1>Tafel</h1><p></p></div>
     <a class="rond" asp-page="/Tables/Move" title="Verplaatsen"><img src="~/icons/potlood.svg" alt="verplaatsen"></a></div>
   <div class="regels">
-    @* Nieuwe regel:
-    <a class="regel" asp-page="/Orders/EditLine"><span class="n">[aantal]</span><span class="tekst"><b>[nummer] · [naam]</b><i class="wens">[bijgerecht of wens]</i><br><i>nieuw</i></span><span class="bedrag">[bedrag]</span></a>
-    Verstuurde regel: class="regel naarkeuken", asp-page="/Orders/Cancel" en <i>verstuurd [tijd]</i>. *@
   </div>
   <div class="totalen">
     <div class="tot-lijn"></div>

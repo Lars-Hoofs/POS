@@ -4,8 +4,6 @@
     ViewData["Title"] = "Opslaan mislukt";
     ViewData["Nav"] = "tables";
 }
-@* NFR-01, NFR-06: een fout blokkeert alleen deze ene actie. De rest van het systeem werkt door,
-     en wat al opgeslagen is, is niet weg. Geen technische foutmelding voor de bediening. *@
 <div class="app met-status"><div style="grid-column:1/-1" class="status offline"><span class="stip"></span>Opslaan van de laatste regel is niet gelukt · probeer het opnieuw</div>
 <partial name="_Rail" /><partial name="_OrderScreen" /></div>
 <div class="sluier"><form class="dlg smal" method="post" asp-page="/Orders/Index" asp-page-handler="AddLine">

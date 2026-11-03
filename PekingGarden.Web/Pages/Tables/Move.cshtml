@@ -4,8 +4,6 @@
     ViewData["Title"] = "Tafel verplaatsen of samenvoegen";
     ViewData["Nav"] = "tables";
 }
-@* UC-12, UC-23: alles naar een andere tafel, samenvoegen als die tafel open is. Moet snel gaan (Jieou 6).
-     Eten en drinken apart afrekenen gebeurt op de rekening (15), niet door te verplaatsen. *@
 <div class="app"><partial name="_Rail" /><partial name="_OrderScreen" /></div>
 <div class="sluier"><form class="dlg breed" method="post" asp-page="/Tables/Index" asp-page-handler="Move">
   <h2>Tafel verplaatsen</h2>
@@ -13,7 +11,6 @@
 
   <div class="veld"><label>Naar</label>
     <div class="keuzes tafels">
-      @* <label class="keuze"><input type="radio" name="targetTable" value="[nummer]">[nummer]<span class="delta">open</span></label> *@
     </div></div>
 
   <div class="melding">

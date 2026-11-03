@@ -5,8 +5,6 @@
     ViewData["Nav"] = "menu";
     ViewData["Role"] = "Manager";
 }
-@* FR-14: Ying past zelf gerechten en prijzen aan, elke week. Per product: gang (voor de keukenbon),
-     btw-tarief (voor de rekening) en welke keuzes erbij horen (FR-04, FR-18). *@
 <div class="app">
 <partial name="_Rail" />
   <main class="mid">
@@ -19,7 +17,6 @@
     </div>
     <div class="scroll" style="padding:0 20px"><table id="products">
       <tr><th>Nr</th><th>Naam</th><th>Categorie</th><th>Gang</th><th class="num">Btw</th><th class="num">Prijs</th></tr>
-      @* <tr data-row><td>[nummer]</td><td><a asp-page="/Menu/Index" asp-route-product="[nummer]">[naam]</a></td><td class="zacht">[categorie]</td><td class="zacht">[gang]</td><td class="num">[btw]</td><td class="num">[prijs]</td></tr> *@
     </table></div>
   </main>
 
@@ -31,7 +28,6 @@
     </div>
     <div class="veld"><label for="name">Naam</label><input class="invoer" id="name" name="name" maxlength="100" autocomplete="off"></div>
     <div class="veld"><label for="category">Categorie</label><select class="invoer" id="category" name="category">
-      @* <option>[categorie]</option> *@
     </select></div>
     <div class="veld"><label>Gang op de keukenbon</label>
       <div class="chips"><label class="chip"><input type="radio" name="course" value="Voorgerecht">Voorgerecht</label><label class="chip"><input type="radio" name="course" value="Tussengerecht">Tussengerecht</label><label class="chip"><input type="radio" name="course" value="Hoofdgerecht">Hoofdgerecht</label><label class="chip"><input type="radio" name="course" value="Nagerecht">Nagerecht</label></div></div>
@@ -39,7 +35,6 @@
       <div class="tabs"><label class="t"><input type="radio" name="vatRate" value="9">9%</label><label class="t"><input type="radio" name="vatRate" value="21">21%</label></div></div>
     <div class="veld"><label>Keuzes bij dit product</label>
       <div class="chips">
-        @* <label class="chip"><input type="checkbox" name="optionGroups" value="[optiegroep]">[optiegroep]</label> *@
       </div></div>
     <div class="melding info">
       <b>Een nieuwe prijs raakt open tafels niet</b>
